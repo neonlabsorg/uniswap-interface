@@ -88,13 +88,13 @@ function useCallsData(calls: (Call | undefined)[], options?: ListenerOptions): C
       )
     }
   }, [chainId, dispatch, options, serializedCallKeys])
-
   return useMemo(
     () =>
       calls.map<CallResult>(call => {
         if (!chainId || !call) return INVALID_RESULT
 
         const result = callResults[chainId]?.[toCallKey(call)]
+        console.log(result, callResults)
         let data
         if (result?.data && result?.data !== '0x') {
           data = result.data
@@ -203,7 +203,6 @@ export function useMultipleContractSingleData(
         : undefined,
     [callInputs, contractInterface, fragment]
   )
-
   const calls = useMemo(
     () =>
       fragment && addresses && addresses.length > 0 && callData
@@ -220,11 +219,14 @@ export function useMultipleContractSingleData(
   )
 
   const results = useCallsData(calls, options)
-
+  console.log(results, calls)
   const latestBlockNumber = useBlockNumber()
 
   return useMemo(() => {
-    return results.map(result => toCallState(result, contractInterface, fragment, latestBlockNumber))
+    return results.map(result => {
+      console.log(result)
+      return toCallState(result, contractInterface, fragment, latestBlockNumber)
+    })
   }, [fragment, results, contractInterface, latestBlockNumber])
 }
 

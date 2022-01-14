@@ -14,7 +14,6 @@ export function useActiveWeb3React(): Web3ReactContextInterface<Web3Provider> & 
 }
 export function useNetworkType() {
   const {library, active} = useWeb3ReactCore<Web3Provider>()
-  console.log(library)
   if (active) {
     return library?.network && library.network.chainId ? ChainId[library.network.chainId] : 'disconnected'
   } else {
