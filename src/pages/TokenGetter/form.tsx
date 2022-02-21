@@ -30,7 +30,7 @@ export default function Form({className = ''}) {
     setResponse(resp)
     responseTimeout.current = setTimeout(() => {
       setResponse({success: true, message: ''})
-    }, 10000)
+    }, 60000)
   }
 
   const [airdropPending, setAirdropPending] = useState(false)
