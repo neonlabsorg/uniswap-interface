@@ -7,11 +7,17 @@ module.exports = {
       'body': `'Archivo'`
     },
     extend: {
+      height: {
+        screen: '100vh'
+      },
       gridTemplateColumns: {
         'menu-item': 'auto minmax(auto, 1fr) auto minmax(0, 72px);',
       },
       spacing: {
         'tooltip': '230px',
+      },
+      borderRadius: {
+        '2rem': '8px'
       },
       colors: {
         dark: '#0E0E0E',
@@ -24,7 +30,9 @@ module.exports = {
        gray: '#464646',
        'soft-grey': '#A1A1A1',
        'inp-dark': '#242424',
-       'inp-light': '#F7F8FF'
+       'inp-light': '#F7F8FF',
+       'stub-grey': '#E5E5E5',
+       'glass': 'rgba(0, 0, 0, 0.4)'
       }
     },
     zIndex: {
