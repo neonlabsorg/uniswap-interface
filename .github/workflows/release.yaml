@@ -9,7 +9,7 @@ on:
 jobs:
   bump_version:
     name: Bump Version
-    runs-on: ubuntu-latest
+    runs-on: gha-runner-scale-set
     outputs:
       new_tag: ${{ steps.github_tag_action.outputs.new_tag }}
       changelog: ${{ steps.github_tag_action.outputs.changelog }}
@@ -26,7 +26,7 @@ jobs:
 
   create_release:
     name: Create Release
-    runs-on: ubuntu-latest
+    runs-on: gha-runner-scale-set
     needs: bump_version
     if: ${{ needs.bump_version.outputs.new_tag != null }}
     steps:
