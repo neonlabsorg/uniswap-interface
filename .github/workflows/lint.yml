@@ -11,7 +11,7 @@ on:
 jobs:
   run-linters:
     name: Run linters
-    runs-on: ubuntu-latest
+    runs-on: gha-runner-scale-set
 
     steps:
       - name: Check out Git repository
